@@ -3,7 +3,7 @@
     <li v-for="tweet in tweets" :key="tweet.id" class="content_post" :style="{ backgroundImage: 'url(' + tweet.image + ')' }">
       <p>{{ tweet.title }}</p>
       <span class="name">
-        {{ tweet.user_name }}
+        <a href="#">{{ tweet.user_name }}</a>
       </span>
     </li>
   </div>
@@ -11,7 +11,7 @@
 
 <script>
 import axios from 'axios';
-
+import '@/assets/css/style.css';
 export default {
   name: 'TweetIndex',
   data() {
