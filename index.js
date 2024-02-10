@@ -28,7 +28,7 @@ mongoose.connect("mongodb+srv://kento012:wL9svTLAPEX3AiP6SHe@cluster0.j3l0owe.mo
 app.use(express.json());
 
 // 新しいツイートをデータベースに保存するためのPOSTエンドポイント
-app.post('/api/tweets/create', async (req, res) => {
+app.post('/api/tweet/create', async (req, res) => {
   console.log(req.body)
   try {
     const newTweet = new TweetModel(req.body);
@@ -40,14 +40,6 @@ app.post('/api/tweets/create', async (req, res) => {
 });
 
 app.use(express.static('dist')); // Vueアプリのビルドファイルが格納されているディレクトリを指定
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html')); // Vueアプリのエントリーポイントを指定
-});
-
-app.get('/tweets/new', (req, res) => {
-  res.sendFile(__dirname + '/views/new-tweet.html');
-});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

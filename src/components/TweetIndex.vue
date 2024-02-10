@@ -1,4 +1,4 @@
-<!-- DataFetcher.vue -->
+<!-- TweetIndex.vue -->
 <template>
   <div>
     <!-- ここに任意のマークアップを追加 -->

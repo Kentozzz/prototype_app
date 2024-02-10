@@ -2,7 +2,7 @@
 <template>
   <div id="app">
     <AppHeader/>
-    <DataFetcher/>
+    <TweetIndex/>
     <AppFooter/>
   </div>
 </template>
@@ -10,7 +10,7 @@
 <script>
 import AppHeader from './components/Header.vue';
 import AppFooter from './components/Footer.vue';
-import DataFetcher from './components/DataFetcher.vue';
+import TweetIndex from './components/TweetIndex.vue';
 
 import './assets/css/style.css'; 
 
@@ -19,7 +19,7 @@ export default {
   components: {
     AppHeader,
     AppFooter,
-    DataFetcher
+    TweetIndex
   }
 };
 </script>
