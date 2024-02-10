@@ -42,15 +42,14 @@ app.post('/api/tweet/create', async (req, res) => {
 // JSONの解析を許可
 app.use(express.json());
 
-// 仮のデータ
-const tweets = [
-  { title: 1, image: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg', user_name: 'John Doe' },
-  { title: 2, image: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg', user_name: 'Taro' }
-];
-
 // すべてのユーザーを取得するエンドポイント
-app.get('/api/tweets', (req, res) => {
-  res.status(200).json(tweets);
+app.get('/api/tweets', async (req, res) => {
+  try {
+    const tweets = await TweetModel.find();
+    res.status(200).json(tweets);
+  } catch (error) {
+    res.status(500).json({ message: "データを取得中にエラーが発生しました", error });
+  }
 });
 
 
