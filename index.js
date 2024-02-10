@@ -1,36 +1,14 @@
+require('./database');
 const express = require('express');
-const path = require('path');
 const app = express();
 const cors = require('cors');
 app.use(cors());
-const port = 5000;
-
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-// バリデーションルールを適用するために必要な関数をexpress-validatorからインポート
+app.use(express.json());
+const { mongoURI, port } = require('./config');
+const TweetModel = require('./models/Tweet');
 const { body, validationResult } = require('express-validator');
 
-const TweetModelSchema = new Schema({
-  title: { type: String, required: true },
-  image: { type: String, required: true },
-  user_name: { type: String, required: true }
-});
-
-const TweetModel = mongoose.model('Tweet', TweetModelSchema);
-mongoose.connect("mongodb+srv://kento012:wL9svTLAPEX3AiP6SHe@cluster0.j3l0owe.mongodb.net/PrototypeAppDb?retryWrites=true&w=majority")
-// ↑これはいずれ環境変数化が必要
-.then(() => {
-  console.log("Success: connect to mongoDB")
-})
-.catch((error) => {
-  console.error("Failure: Unconnected to MongoDB")
-})
-
-// ミドルウェアを設定してJSONリクエストボディを解析できるようにします
-app.use(express.json());
-
 // 新しいツイートをデータベースに保存するためのPOSTエンドポイント
-
 app.post('/api/tweet/create', [
   body('title')
     .trim() // 前後の空白を削除
