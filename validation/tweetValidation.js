@@ -15,6 +15,5 @@ exports.createTweetValidationRules = () => {
     .trim() // 前後の空白を削除
     .not().isEmpty().withMessage('ユーザー名は必須です') // 空でないことを確認
     .custom(value => value.replace(/\s/g, '').length > 0).withMessage('ユーザー名には有効な文字を入力してください'), // スペースのみの入力を防止
-
   ];
 }
