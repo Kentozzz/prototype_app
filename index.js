@@ -28,6 +28,8 @@ mongoose.connect("mongodb+srv://kento012:wL9svTLAPEX3AiP6SHe@cluster0.j3l0owe.mo
 app.use(express.json());
 
 // 新しいツイートをデータベースに保存するためのPOSTエンドポイント
+app.post('/api/tweet/create', async (req, res) => {
+  console.log(req.body)
 
 // バリデーションルールを適用するために必要な関数をexpress-validatorからインポート
 const { body, validationResult } = require('express-validator');
@@ -62,15 +64,21 @@ app.post('/api/tweet/create', [
   }
 });
 
+// JSONの解析を許可
+app.use(express.json());
+
+// すべてのユーザーを取得するエンドポイント
+app.get('/api/tweets', async (req, res) => {
+  try {
+    const tweets = await TweetModel.find();
+    res.status(200).json(tweets);
+  } catch (error) {
+    res.status(500).json({ message: "データを取得中にエラーが発生しました", error });
+  }
+});
+
+
 app.use(express.static('dist')); // Vueアプリのビルドファイルが格納されているディレクトリを指定
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html')); // Vueアプリのエントリーポイントを指定
-});
-
-app.get('/tweets/new', (req, res) => {
-  res.sendFile(__dirname + '/views/new-tweet.html');
-});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

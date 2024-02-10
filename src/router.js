@@ -1,19 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import DataFetcher from '@/components/DataFetcher.vue';
+import TweetIndex from '@/components/TweetIndex.vue';
 import NewTweet from '@/components/NewTweet.vue';
 
 export const router = createRouter({
   history: createWebHistory(), // “history” モードを使用
   routes: [
     {
-      path: '/tweets/new',
+      path: '/tweet/new',
       name: 'NewTweet',
       component: NewTweet
     },
     {
       path: '/',
-      name: 'DataFetcher',
-      component: DataFetcher
+      name: 'TweetIndex',
+      component: TweetIndex
     },
     // 他のルートもここに追加できます
   ],

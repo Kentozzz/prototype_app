@@ -669,7 +669,7 @@ a:hover {
 }
 
 .serif,
-div.contents.row div.content_post p {
+div.contents.row li.content_post p {
   font-family: 'ほのか明朝', serif;
 }
 
@@ -853,7 +853,8 @@ div.contents.row .new_user {
   font-family: "游ゴシック", "YuGothic";
 }
 
-div.contents.row div.content_post {
+div.contents.row li.content_post {
+  list-style: none;
   margin: 20px 0;
   padding: 30px;
   position: relative;
@@ -865,7 +866,7 @@ div.contents.row div.content_post {
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
 }
 
-div.contents.row div.content_post:after {
+div.contents.row li.content_post:after {
   content: '';
   position: absolute;
   top: 0;
@@ -883,7 +884,7 @@ div.contents.row div.content_post:after {
   border-radius: 3px;
 }
 
-div.contents.row div.content_post .more {
+div.contents.row li.content_post .more {
   position: absolute;
   cursor: pointer;
   top: 20px;
@@ -894,11 +895,11 @@ div.contents.row div.content_post .more {
   text-align: right;
 }
 
-div.contents.row div.content_post .more:hover ul.more_list {
+div.contents.row li.content_post .more:hover ul.more_list {
   display: block;
 }
 
-div.contents.row div.content_post .more ul.more_list {
+div.contents.row li.content_post .more ul.more_list {
   position: absolute;
   text-align: left;
   width: 80px;
@@ -911,25 +912,25 @@ div.contents.row div.content_post .more ul.more_list {
   border-radius: 3px;
 }
 
-div.contents.row div.content_post .more ul.more_list li {
+div.contents.row li.content_post .more ul.more_list li {
   border-bottom: 1px solid #ddd;
 }
 
-div.contents.row div.content_post .more ul.more_list li:last-child {
+div.contents.row li.content_post .more ul.more_list li:last-child {
   border-bottom: 0;
 }
 
-div.contents.row div.content_post .more ul.more_list li a {
+div.contents.row li.content_post .more ul.more_list li a {
   display: block;
   padding: 5px;
 }
 
-div.contents.row div.content_post .more ul.more_list li a:hover {
+div.contents.row li.content_post .more ul.more_list li a:hover {
   background-color: #57C3E9;
   color: #fff;
 }
 
-div.contents.row div.content_post p {
+div.contents.row li.content_post p {
   position: absolute;
   left: 30px;
   right: 100px;
@@ -941,7 +942,7 @@ div.contents.row div.content_post p {
   text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
 }
 
-div.contents.row div.content_post span.name {
+div.contents.row li.content_post span.name {
   position: absolute;
   right: 30px;
   bottom: 30px;
@@ -949,17 +950,17 @@ div.contents.row div.content_post span.name {
   font-size: 13px;
 }
 
-div.contents.row div.content_post span.name a {
+div.contents.row li.content_post span.name a {
   display: block;
   color: #aaa;
 }
 
-div.contents.row div.content_post span.name a:hover {
+div.contents.row li.content_post span.name a:hover {
   text-decoration: underline;
   color: #aaa;
 }
 
-div.contents.row div.content_post span.name span {
+div.contents.row li.content_post span.name span {
   font-size: 9px;
   display: block;
 }

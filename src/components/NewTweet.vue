@@ -35,7 +35,7 @@ export default {
   methods: {
     async submitTweet() {
       try {
-        let response = await axios.post('http://localhost:5000/api/tweets/create', this.tweet);
+        let response = await axios.post('http://localhost:5000/api/tweet/create', this.tweet);
         console.log(response.data);
         this.$router.push('/');
         // 投稿後のアクション（例：フォームをクリア、通知を表示、ページ遷移など）
