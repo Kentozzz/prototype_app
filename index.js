@@ -7,6 +7,8 @@ const port = 5000;
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+// バリデーションルールを適用するために必要な関数をexpress-validatorからインポート
+const { body, validationResult } = require('express-validator');
 
 const TweetModelSchema = new Schema({
   title: { type: String, required: true },
@@ -28,11 +30,6 @@ mongoose.connect("mongodb+srv://kento012:wL9svTLAPEX3AiP6SHe@cluster0.j3l0owe.mo
 app.use(express.json());
 
 // 新しいツイートをデータベースに保存するためのPOSTエンドポイント
-app.post('/api/tweet/create', async (req, res) => {
-  console.log(req.body)
-
-// バリデーションルールを適用するために必要な関数をexpress-validatorからインポート
-const { body, validationResult } = require('express-validator');
 
 app.post('/api/tweet/create', [
   body('title')

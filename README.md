@@ -1,24 +1,16 @@
 # prototype_app
 
-## Project setup
+## ①依存関係のインストール
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### ②Vue.jsのサーバー起動
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### ③Expressのサーバー起動
 ```
-npm run build
+node index.js
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
