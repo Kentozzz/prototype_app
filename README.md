@@ -14,3 +14,4 @@ npm run serve
 ```
 node index.js
 ```
+### ブラウザではlocalhost:8080に接続してアプリを使用してください。

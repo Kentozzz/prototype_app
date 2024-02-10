@@ -20,7 +20,7 @@ export default {
   },
   async mounted() {
     try {
-      const response = await axios.get('http://localhost:5000/api/tweets');
+      const response = await axios.get('http://localhost:5000/api/tweet');
       this.tweets = response.data;
     } catch (error) {
       console.error(error);
