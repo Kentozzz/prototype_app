@@ -11,7 +11,6 @@
 
 <script>
 import axios from 'axios';
-import '@/assets/css/style.css';
 export default {
   name: 'TweetIndex',
   data() {
