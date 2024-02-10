@@ -1,10 +1,31 @@
-<!-- TweetIndex.vue -->
 <template>
   <div class="contents row">
-  <!-- <div class="content_post" style="background-image: url("ツイートの画像");"> -->
-    <p>ツイートの本文</p>
-    <span class="name">
-      投稿者名
-    </span>
+    <li v-for="tweet in tweets" :key="tweet.id" class="content_post" :style="{ backgroundImage: 'url(' + tweet.image + ')' }">
+      <p>{{ tweet.title }}</p>
+      <span class="name">
+        {{ tweet.user_name }}
+      </span>
+    </li>
   </div>
 </template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  name: 'TweetIndex',
+  data() {
+    return {
+      tweets: []
+    };
+  },
+  async mounted() {
+    try {
+      const response = await axios.get('http://localhost:5000/api/tweets');
+      this.tweets = response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+};
+</script>

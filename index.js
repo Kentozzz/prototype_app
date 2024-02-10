@@ -39,6 +39,21 @@ app.post('/api/tweet/create', async (req, res) => {
   }
 });
 
+// JSONの解析を許可
+app.use(express.json());
+
+// 仮のデータ
+const tweets = [
+  { title: 1, image: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg', user_name: 'John Doe' },
+  { title: 2, image: 'https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg', user_name: 'Taro' }
+];
+
+// すべてのユーザーを取得するエンドポイント
+app.get('/api/tweets', (req, res) => {
+  res.status(200).json(tweets);
+});
+
+
 app.use(express.static('dist')); // Vueアプリのビルドファイルが格納されているディレクトリを指定
 
 app.listen(port, () => {
