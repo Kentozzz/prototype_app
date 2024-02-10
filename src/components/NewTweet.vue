@@ -4,16 +4,13 @@
       <h3>投稿する</h3>
       <form @submit.prevent="submitTweet">
         <div>
-            <label for="image">Image:</label>
-            <input type="text" id="image" v-model="tweet.image" name="image" required>
+            <input id="user_name" v-model="tweet.user_name" name="user_name" required placeholder="Nick Name">
         </div>
         <div>
-            <label for="title">Title:</label>
-            <input id="title" v-model="tweet.title" type="text" required>
+            <input type="text" id="image" v-model="tweet.image" name="image" required placeholder="Image Url">
         </div>
         <div>
-            <label for="user_name">User Name:</label>
-            <input id="user_name" v-model="tweet.user_name" name="user_name" required>
+            <textarea id="title" v-model="tweet.title" type="text" required placeholder="text"></textarea>
         </div>
         <button type="submit">SEND</button>
       </form>
