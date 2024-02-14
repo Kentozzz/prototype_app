@@ -40,6 +40,7 @@ export default {
         this.$router.push('/');
         // 投稿後のアクション（例：フォームをクリア、通知を表示、ページ遷移など）
       } catch (error) {
+        console.log(error);
       }
     }
   }
