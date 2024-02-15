@@ -15,3 +15,4 @@ npm run serve
 node index.js
 ```
 ### ブラウザではlocalhost:8080に接続してアプリを使用してください。
+### cypressを動かす場合は npx cypress open
